@@ -30,7 +30,7 @@ const Navbar = () => {
 
     return (
         <header>
-            <nav className="mx-auto h-[10vh] w-full text-white">
+            <nav className="fixed mx-auto h-16 w-full bg-primary-black bg-opacity-80 text-white backdrop-blur backdrop-filter">
                 <div className="mx-auto flex w-5/6 items-center justify-between py-6 ">
                     <a href="#Home" className="text-primary-blue">
                         VI
@@ -72,7 +72,7 @@ const Navbar = () => {
                                 width: 0,
                                 transition: { delay: 0.7, duration: 0.3 },
                             }}
-                            className="fixed top-0 left-0 flex h-screen w-screen flex-col items-center justify-center bg-slate-800"
+                            className="fixed top-0 left-0 z-[2] flex h-screen w-screen flex-col items-center justify-center bg-slate-800"
                         >
                             <motion.ul
                                 initial="closed"
@@ -91,18 +91,18 @@ const Navbar = () => {
                                 </motion.li>
                                 <motion.li key={2} variants={menuItemVariants} className="cursor-pointer py-3">
                                     <a
-                                        href="#About"
-                                        className="relative no-underline after:absolute after:left-0 after:-bottom-1 after:h-[3px] after:w-0 after:bg-primary-blue after:duration-[0.35s] after:ease-in-out after:content-[''] hover:after:w-full"
-                                    >
-                                        About
-                                    </a>
-                                </motion.li>
-                                <motion.li key={3} variants={menuItemVariants} className="cursor-pointer py-3">
-                                    <a
                                         href="#Projects"
                                         className="relative no-underline after:absolute after:left-0 after:-bottom-1 after:h-[3px] after:w-0 after:bg-primary-blue after:duration-[0.35s] after:ease-in-out after:content-[''] hover:after:w-full"
                                     >
                                         Projects
+                                    </a>
+                                </motion.li>
+                                <motion.li key={3} variants={menuItemVariants} className="cursor-pointer py-3">
+                                    <a
+                                        href="#About"
+                                        className="relative no-underline after:absolute after:left-0 after:-bottom-1 after:h-[3px] after:w-0 after:bg-primary-blue after:duration-[0.35s] after:ease-in-out after:content-[''] hover:after:w-full"
+                                    >
+                                        About
                                     </a>
                                 </motion.li>
                                 <motion.li key={4} variants={menuItemVariants} className="cursor-pointer py-3">

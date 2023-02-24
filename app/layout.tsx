@@ -1,5 +1,5 @@
 import "../styles/globals.css"
-import { Radio_Canada } from "@next/font/google"
+import { Radio_Canada } from "next/font/google"
 
 export const metadata = {
     title: "Vladimir Infante",
