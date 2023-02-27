@@ -11,7 +11,7 @@ const Projects = () => {
                 <div className="projects-wrapper"></div>
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default Projects
+export default Projects;

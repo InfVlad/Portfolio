@@ -1,10 +1,10 @@
-"use client"
+"use client";
 
-import { AnimatePresence, motion, useCycle } from "framer-motion"
+import { AnimatePresence, motion, useCycle } from "framer-motion";
 // import Image from "next/image"
 
 const Navbar = () => {
-    const [open, cycleOpen] = useCycle(false, true)
+    const [open, cycleOpen] = useCycle(false, true);
     const menuItemVariants = {
         closed: {
             opacity: 0,
@@ -12,7 +12,7 @@ const Navbar = () => {
         open: {
             opacity: 1,
         },
-    }
+    };
     const menuSideVariants = {
         closed: {
             transition: {
@@ -26,7 +26,7 @@ const Navbar = () => {
                 staggerDirection: 1,
             },
         },
-    }
+    };
 
     return (
         <header className="relative z-[5]">
@@ -119,7 +119,7 @@ const Navbar = () => {
                 </AnimatePresence>
             </nav>
         </header>
-    )
-}
+    );
+};
 
-export default Navbar
+export default Navbar;

@@ -1,13 +1,13 @@
-"use client"
+"use client";
 
-import { renderCanvas } from "@/components"
-import { useEffect } from "react"
-import { FaGithub, FaLinkedinIn } from "react-icons/fa"
+import { renderCanvas } from "@/components";
+import { useEffect } from "react";
+import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 
 const Hero = () => {
     useEffect(() => {
-        renderCanvas()
-    }, [])
+        renderCanvas();
+    }, []);
     return (
         <div className="section-hero" id="Home">
             <div className="hero-section container mx-auto mb-20">
@@ -61,7 +61,7 @@ const Hero = () => {
                 <canvas className="pointer-events-none absolute inset-1" id="canvas" />
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default Hero
+export default Hero;

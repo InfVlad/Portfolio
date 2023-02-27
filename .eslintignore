@@ -2,5 +2,6 @@
 
 # dependencies
 /node_modules
+*.config.js
 tailwind.config.js
 /components/renderCanvas.js

@@ -1,5 +1,5 @@
-import { Navbar, Footer } from "@/components"
-import { Hero, About, Skills, Contact, Projects } from "../sections"
+import { Navbar, Footer } from "@/components";
+import { Hero, About, Skills, Contact, Projects } from "@/sections";
 
 export default function Home() {
     return (
@@ -14,5 +14,5 @@ export default function Home() {
             </main>
             <Footer />
         </div>
-    )
+    );
 }
