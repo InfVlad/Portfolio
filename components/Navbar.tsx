@@ -30,10 +30,10 @@ const Navbar = () => {
 
     return (
         <header className="relative z-[5]">
-            <nav className="fixed mx-auto h-16 w-full bg-primary-black bg-opacity-80 text-white backdrop-blur backdrop-filter">
-                <div className="mx-auto flex w-5/6 items-center justify-between py-6 ">
-                    <a href="#Home" className="text-primary-blue">
-                        VI
+            <nav className="fixed mx-auto h-16 w-full bg-dark-blue bg-opacity-80 text-white backdrop-blur backdrop-filter">
+                <div className="mx-auto flex w-5/6 items-center justify-between py-6 lg:max-w-[1250px] ">
+                    <a href="#Home">
+                        <img src="/icon.svg" alt="site's icon" />
                     </a>
                     <div className="flex items-center">
                         <motion.div

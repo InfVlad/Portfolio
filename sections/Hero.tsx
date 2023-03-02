@@ -13,7 +13,7 @@ const Hero = () => {
             <div className="hero-section container mx-auto mb-20">
                 <div className="hero-section relative z-[3] flex min-h-screen w-full flex-col items-center justify-center">
                     <div className="relative">
-                        <div className="pointer-events-none absolute right-0 top-[-7rem] z-[1] h-56 w-56 bg-primary-purple opacity-50 blur-3xl"></div>
+                        <div className="pointer-events-none absolute right-0 top-[-7rem] z-[1] h-56 w-56 bg-secondary-purple opacity-50 blur-3xl" />
                     </div>
                     <h1 className="z-[2] mb-5 text-center text-5xl font-bold">Vladimir Infante</h1>
                     <h3 className="z-[2] mb-4 text-xl font-semibold">FullStack Developer</h3>
@@ -21,7 +21,7 @@ const Hero = () => {
                         I build great digital experiences using modern technologies
                     </p>
                     <div className="relative">
-                        <div className="pointer-events-none absolute left-0 top-[-1rem] z-[1] h-56 w-56 bg-secondary-blue opacity-50 blur-3xl"></div>
+                        <div className="pointer-events-none absolute left-0 top-[-1rem] z-[1] h-56 w-56 bg-secondary-blue opacity-50 blur-3xl" />
                     </div>
                     <div className="z-[2] mt-6 text-center">
                         <ul className="mb-0 inline-flex list-none flex-wrap gap-3 pl-0 sm:gap-4">
@@ -32,10 +32,10 @@ const Hero = () => {
                                     rel="noopener noreferrer"
                                     className="group flex h-10 w-10 flex-wrap overflow-hidden rounded border border-white border-opacity-10 text-center text-xl"
                                 >
-                                    <span className="flex h-full w-full items-center justify-center rounded bg-primary-black text-primary-blue transition-all duration-500 group-hover:-translate-y-full">
+                                    <span className="flex h-full w-full items-center justify-center rounded bg-dark-blue text-primary-blue transition-all duration-500 group-hover:-translate-y-full">
                                         <FaGithub />
                                     </span>
-                                    <span className="flex h-full w-full items-center justify-center rounded bg-primary-blue text-primary-black transition-all duration-500 group-hover:-translate-y-full">
+                                    <span className="flex h-full w-full items-center justify-center rounded bg-primary-blue text-dark-blue transition-all duration-500 group-hover:-translate-y-full">
                                         <FaGithub />
                                     </span>
                                 </a>
@@ -47,10 +47,10 @@ const Hero = () => {
                                     rel="noopener noreferrer"
                                     className="group flex h-10 w-10 flex-wrap overflow-hidden rounded border border-white border-opacity-10 text-center text-xl"
                                 >
-                                    <span className="flex h-full w-full items-center justify-center rounded bg-primary-black text-primary-blue transition-all duration-500 group-hover:-translate-y-full">
+                                    <span className="flex h-full w-full items-center justify-center rounded bg-dark-blue text-primary-blue transition-all duration-500 group-hover:-translate-y-full">
                                         <FaLinkedinIn />
                                     </span>
-                                    <span className="flex h-full w-full items-center justify-center rounded bg-primary-blue text-primary-black transition-all duration-500 group-hover:-translate-y-full">
+                                    <span className="flex h-full w-full items-center justify-center rounded bg-primary-blue text-dark-blue transition-all duration-500 group-hover:-translate-y-full">
                                         <FaLinkedinIn />
                                     </span>
                                 </a>

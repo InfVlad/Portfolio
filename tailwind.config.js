@@ -12,9 +12,10 @@ module.exports = {
     theme: {
         extend: {
             colors: {
-                "primary-black": "#161625",
-                "primary-purple": "#3E32F0",
-                "primary-blue": "#67a4e9",
+                "dark-blue": "#141625",
+                "primary-purple": "#B59FF9",
+                "secondary-purple": "#3E32F0",
+                "primary-blue": "#88C8FF",
                 "secondary-blue": "#32EEF0",
             },
         },

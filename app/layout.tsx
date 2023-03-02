@@ -2,7 +2,7 @@ import "../styles/globals.css";
 import { Radio_Canada } from "next/font/google";
 
 export const metadata = {
-    title: "Vladimir Infante",
+    title: "Vladimir Infante - Portfolio",
     description: "Vladimir Infante's Personal Portfolio",
 };
 const radioCanada = Radio_Canada({
