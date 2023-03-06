@@ -1,29 +1,29 @@
 "use client";
 
 import { renderCanvas } from "@/components";
-import { useEffect, useState, useRef } from "react";
+import { useEffect } from "react";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 
 // all this just to run renderCanvas on the second render, no the first (hydratation conflict)
-const useDidMountEffect = (func: any, deps: any) => {
-    const didMount = useRef(false);
-    useEffect(() => {
-        if (didMount.current) {
-            func();
-        } else {
-            didMount.current = true;
-        }
-    }, deps);
-};
+// const useDidMountEffect = (func: any, deps: any) => {
+//     const didMount = useRef(false);
+//     useEffect(() => {
+//         if (didMount.current) {
+//             func();
+//         } else {
+//             didMount.current = true;
+//         }
+//     }, deps);
+// };
 
 const Hero = () => {
-    const [loaded, setLoaded] = useState(true);
+    // const [loaded, setLoaded] = useState(true);
 
     useEffect(() => {
-        setLoaded(true);
+        renderCanvas();
     }, []);
 
-    useDidMountEffect(renderCanvas, [loaded]);
+    // useDidMountEffect(renderCanvas, [loaded]);
 
     return (
         <div className="section-hero" id="Home">
@@ -33,7 +33,7 @@ const Hero = () => {
                         <div className="lg:h-6w-60 pointer-events-none absolute right-0 top-[-7rem] z-[1] h-56 w-56 bg-secondary-purple opacity-50 blur-3xl lg:top-[-13rem] lg:right-[13rem] lg:w-60" />
                     </div>
                     <h1 className="z-[2] mb-5 text-center text-5xl font-bold lg:text-7xl">Vladimir Infante</h1>
-                    <h3 className="z-[2] mb-4 text-xl font-semibold lg:text-2xl">FullStack Developer</h3>
+                    <h2 className="z-[2] mb-4 text-xl font-semibold lg:text-2xl">FullStack Developer</h2>
                     <p className="z-[2] text-center text-lg">
                         I build great digital experiences using modern technologies
                     </p>
@@ -77,7 +77,7 @@ const Hero = () => {
                         </ul>
                     </div>
                 </div>
-                {loaded && <canvas className="pointer-events-none absolute inset-1" id="canvas" />}
+                <canvas className="pointer-events-none absolute inset-1" id="canvas" />
             </div>
         </div>
     );

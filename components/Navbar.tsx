@@ -132,7 +132,10 @@ const Navbar = () => {
                                     <span className="text text-xl font-medium">Contact</span>
                                 </a>
                             </li>
-                            <div className="indicator absolute left-0 z-[2] h-[30px] w-[90px] rounded-lg transition-all duration-500" />
+                            <li
+                                aria-label="this element for background animation"
+                                className="indicator absolute left-0 z-[2] h-[30px] w-[90px] rounded-lg transition-all duration-500"
+                            />
                         </ul>
                     </div>
                 </div>
