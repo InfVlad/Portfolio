@@ -46,6 +46,7 @@ const Hero = () => {
                                 <a
                                     href="https://github.com/InfVlad"
                                     target="_blank"
+                                    aria-label="checkout the github page for more information"
                                     rel="noopener noreferrer"
                                     className="group flex h-10 w-10 flex-wrap overflow-hidden rounded border border-white border-opacity-10 text-center text-xl"
                                 >
@@ -62,6 +63,7 @@ const Hero = () => {
                                     href="https://www.linkedin.com/in/vladimir-infante-347058263/"
                                     target="_blank"
                                     rel="noopener noreferrer"
+                                    aria-label="checkout the linkedin profile for more information"
                                     className="group flex h-10 w-10 flex-wrap overflow-hidden rounded border border-white border-opacity-10 text-center text-xl"
                                 >
                                     <span className="flex h-full w-full items-center justify-center rounded bg-dark-blue text-primary-blue transition-all duration-500 group-hover:-translate-y-full">

@@ -18,7 +18,7 @@ const About = () => {
                     </div>
                     <div className="col-span-2 lg:col-span-1">
                         <div className="flex max-w-[90vw] flex-col items-start justify-center">
-                            <h4 className="mb-6 text-xl font-semibold lg:text-2xl">Hi there!</h4>
+                            <p className="mb-6 text-xl font-semibold lg:text-2xl">Hi there!</p>
                             <p className="text-md select-text pt-3 lg:text-xl">
                                 My name is Vladimir Infante. I am a self-taught full-stack developer from Venezuela. I
                                 am passionate about technology, facing challenges, and learning new things. I deliver
