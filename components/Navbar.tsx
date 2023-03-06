@@ -91,7 +91,7 @@ const Navbar = () => {
                                 </motion.li>
                                 <motion.li key={2} variants={menuItemVariants} className="cursor-pointer py-3">
                                     <a
-                                        href="#Projects"
+                                        href="#projects"
                                         className="relative no-underline after:absolute after:left-0 after:-bottom-1 after:h-[3px] after:w-0 after:bg-primary-blue after:duration-[0.35s] after:ease-in-out after:content-[''] hover:after:w-full"
                                     >
                                         Projects
@@ -99,7 +99,7 @@ const Navbar = () => {
                                 </motion.li>
                                 <motion.li key={3} variants={menuItemVariants} className="cursor-pointer py-3">
                                     <a
-                                        href="#About"
+                                        href="#about"
                                         className="relative no-underline after:absolute after:left-0 after:-bottom-1 after:h-[3px] after:w-0 after:bg-primary-blue after:duration-[0.35s] after:ease-in-out after:content-[''] hover:after:w-full"
                                     >
                                         About
@@ -107,7 +107,7 @@ const Navbar = () => {
                                 </motion.li>
                                 <motion.li key={4} variants={menuItemVariants} className="cursor-pointer py-3">
                                     <a
-                                        href="#Contact"
+                                        href="#contact"
                                         className="relative no-underline after:absolute after:left-0 after:-bottom-1 after:h-[3px] after:w-0 after:bg-primary-blue after:duration-[0.35s] after:ease-in-out after:content-[''] hover:after:w-full"
                                     >
                                         Contact

@@ -23,7 +23,7 @@ const ProjectCard = ({ title, imagesUrl, description, id }: ProjectCardProps) =>
                         src={imagesUrl[0]}
                         alt={`${title}`}
                         fill
-                        // className="absolute top-0 left-0 h-full w-full object-cover"
+                        // className="absolute top-0 left-0 object-cover w-full h-full"
                         style={{ objectFit: "cover", position: "absolute", top: "0", left: "0" }}
                     />
                 </div>
@@ -47,3 +47,4 @@ const ProjectCard = ({ title, imagesUrl, description, id }: ProjectCardProps) =>
 };
 
 export default ProjectCard;
+//
