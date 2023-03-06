@@ -81,17 +81,18 @@ function onMousemove(e) {
     function c(e) {
         e.touches
             ? ((pos.x = e.touches[0].pageX), (pos.y = e.touches[0].pageY))
-            : ((pos.x = e.clientX), (pos.y = e.clientY)),
-            e.preventDefault();
+            : ((pos.x = e.clientX), (pos.y = e.clientY));
+        // ,
+        // e.preventDefault();
     }
     function l(e) {
         1 == e.touches.length && ((pos.x = e.touches[0].pageX), (pos.y = e.touches[0].pageY));
     }
     document.removeEventListener("mousemove", onMousemove),
-        document.removeEventListener("click", onMousemove),
+        document.removeEventListener("touchstart", onMousemove),
         document.addEventListener("mousemove", c),
-        // document.addEventListener('touchmove', c),
-        document.addEventListener("click", c),
+        document.addEventListener("touchmove", c),
+        document.addEventListener("touchstart", l),
         c(e),
         o(),
         render();
@@ -149,7 +150,7 @@ const renderCanvas = function () {
         offset: 285,
     });
     document.addEventListener("mousemove", onMousemove);
-    document.addEventListener("click", onMousemove);
+    document.addEventListener("touchstart", onMousemove);
     document.body.addEventListener("orientationchange", resizeCanvas);
     window.addEventListener("resize", resizeCanvas);
     window.addEventListener("focus", () => {

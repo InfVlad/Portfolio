@@ -1,10 +1,25 @@
 "use client";
 
+import { useState } from "react";
 import { AnimatePresence, motion, useCycle } from "framer-motion";
 // import Image from "next/image"
 
 const Navbar = () => {
     const [open, cycleOpen] = useCycle(false, true);
+    const [selected, setSelected] = useState("home");
+
+    const navButtonsStyles = {
+        active: "active text-dark-blue ",
+        inactive: "text-primary-blue ",
+    };
+
+    const handleMouseOver = (section: string) => {
+        setSelected(section);
+    };
+    const isActive = (section: string) => {
+        return selected === section ? navButtonsStyles.active : navButtonsStyles.inactive;
+    };
+
     const menuItemVariants = {
         closed: {
             opacity: 0,
@@ -35,9 +50,9 @@ const Navbar = () => {
                     <a href="#Home">
                         <img src="/icon.svg" alt="site's icon" />
                     </a>
-                    <div className="flex items-center">
+                    <div className="flex items-center md:hidden">
                         <motion.div
-                            className={`z-10 flex h-5 w-6 cursor-pointer flex-col items-center justify-between md:hidden${
+                            className={`z-10 flex h-5 w-6 cursor-pointer flex-col items-center justify-between${
                                 open ? " active" : ""
                             }`}
                             onTap={() => cycleOpen()}
@@ -58,6 +73,67 @@ const Navbar = () => {
                                 }`}
                             />
                         </motion.div>
+                    </div>
+                    <div className="desktop-navigation relative hidden w-[450px] md:block">
+                        <ul className="flex">
+                            <li
+                                onMouseOver={() => handleMouseOver("home")}
+                                onFocus={() => handleMouseOver("home")}
+                                className={`${isActive(
+                                    "home"
+                                )}list relative z-[3] h-[30px] w-[90px] list-none transition-all duration-500`}
+                            >
+                                <a href="#Home" className="relative flex items-center justify-center text-center">
+                                    <span className="text text-xl font-medium">Home</span>
+                                </a>
+                            </li>
+
+                            <li
+                                onMouseOver={() => handleMouseOver("projects")}
+                                onFocus={() => handleMouseOver("projects")}
+                                className={`${isActive(
+                                    "projects"
+                                )}list relative z-[3] h-[30px] w-[90px] list-none transition-all duration-500`}
+                            >
+                                <a href="#projects" className="relative flex items-center justify-center text-center">
+                                    <span className="text text-xl font-medium">Projects</span>
+                                </a>
+                            </li>
+                            <li
+                                onMouseOver={() => handleMouseOver("about")}
+                                onFocus={() => handleMouseOver("about")}
+                                className={`${isActive(
+                                    "about"
+                                )}list relative z-[3] h-[30px] w-[90px] list-none transition-all duration-500`}
+                            >
+                                <a href="#about" className="relative flex items-center justify-center text-center">
+                                    <span className="text text-xl font-medium">About</span>
+                                </a>
+                            </li>
+                            <li
+                                onMouseOver={() => handleMouseOver("skills")}
+                                onFocus={() => handleMouseOver("skills")}
+                                className={`${isActive(
+                                    "skills"
+                                )}list relative z-[3] h-[30px] w-[90px] list-none transition-all duration-500`}
+                            >
+                                <a href="#skills" className="relative flex items-center justify-center text-center">
+                                    <span className="text text-xl font-medium">Skills</span>
+                                </a>
+                            </li>
+                            <li
+                                onMouseOver={() => handleMouseOver("contact")}
+                                onFocus={() => handleMouseOver("contact")}
+                                className={`${isActive(
+                                    "contact"
+                                )}list relative z-[3] h-[30px] w-[90px] list-none transition-all duration-500`}
+                            >
+                                <a href="#contact" className="relative flex items-center justify-center text-center">
+                                    <span className="text text-xl font-medium">Contact</span>
+                                </a>
+                            </li>
+                            <div className="indicator absolute left-0 z-[2] h-[30px] w-[90px] rounded-lg transition-all duration-500" />
+                        </ul>
                     </div>
                 </div>
                 <AnimatePresence>
@@ -81,7 +157,12 @@ const Navbar = () => {
                                 variants={menuSideVariants}
                                 className="text-center text-xl"
                             >
-                                <motion.li key={1} variants={menuItemVariants} className="cursor-pointer py-3">
+                                <motion.li
+                                    key={1}
+                                    variants={menuItemVariants}
+                                    className="cursor-pointer py-3"
+                                    onTap={() => cycleOpen()}
+                                >
                                     <a
                                         href="#Home"
                                         className="relative no-underline after:absolute after:left-0 after:-bottom-1 after:h-[3px] after:w-0 after:bg-primary-blue after:duration-[0.35s] after:ease-in-out after:content-[''] hover:after:w-full"
@@ -89,7 +170,12 @@ const Navbar = () => {
                                         Home
                                     </a>
                                 </motion.li>
-                                <motion.li key={2} variants={menuItemVariants} className="cursor-pointer py-3">
+                                <motion.li
+                                    key={2}
+                                    variants={menuItemVariants}
+                                    className="cursor-pointer py-3"
+                                    onTap={() => cycleOpen()}
+                                >
                                     <a
                                         href="#projects"
                                         className="relative no-underline after:absolute after:left-0 after:-bottom-1 after:h-[3px] after:w-0 after:bg-primary-blue after:duration-[0.35s] after:ease-in-out after:content-[''] hover:after:w-full"
@@ -97,7 +183,12 @@ const Navbar = () => {
                                         Projects
                                     </a>
                                 </motion.li>
-                                <motion.li key={3} variants={menuItemVariants} className="cursor-pointer py-3">
+                                <motion.li
+                                    key={3}
+                                    variants={menuItemVariants}
+                                    className="cursor-pointer py-3"
+                                    onTap={() => cycleOpen()}
+                                >
                                     <a
                                         href="#about"
                                         className="relative no-underline after:absolute after:left-0 after:-bottom-1 after:h-[3px] after:w-0 after:bg-primary-blue after:duration-[0.35s] after:ease-in-out after:content-[''] hover:after:w-full"
@@ -105,7 +196,25 @@ const Navbar = () => {
                                         About
                                     </a>
                                 </motion.li>
-                                <motion.li key={4} variants={menuItemVariants} className="cursor-pointer py-3">
+                                <motion.li
+                                    key={4}
+                                    variants={menuItemVariants}
+                                    className="cursor-pointer py-3"
+                                    onTap={() => cycleOpen()}
+                                >
+                                    <a
+                                        href="#skills"
+                                        className="relative no-underline after:absolute after:left-0 after:-bottom-1 after:h-[3px] after:w-0 after:bg-primary-blue after:duration-[0.35s] after:ease-in-out after:content-[''] hover:after:w-full"
+                                    >
+                                        Skills
+                                    </a>
+                                </motion.li>
+                                <motion.li
+                                    key={5}
+                                    variants={menuItemVariants}
+                                    className="cursor-pointer py-3"
+                                    onTap={() => cycleOpen()}
+                                >
                                     <a
                                         href="#contact"
                                         className="relative no-underline after:absolute after:left-0 after:-bottom-1 after:h-[3px] after:w-0 after:bg-primary-blue after:duration-[0.35s] after:ease-in-out after:content-[''] hover:after:w-full"

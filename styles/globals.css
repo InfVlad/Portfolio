@@ -1,3 +1,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.desktop-navigation ul li:nth-child(1).active ~ .indicator {
+    @apply translate-x-[calc(90px_*_0)] bg-primary-blue shadow-[0_15px_25px_#88C8FF99];
+}
+.desktop-navigation ul li:nth-child(2).active ~ .indicator {
+    @apply translate-x-[calc(90px_*_1)] bg-primary-blue shadow-[0_15px_25px_#88C8FF99];
+}
+.desktop-navigation ul li:nth-child(3).active ~ .indicator {
+    @apply translate-x-[calc(90px_*_2)] bg-primary-blue shadow-[0_15px_25px_#88C8FF99];
+}
+.desktop-navigation ul li:nth-child(4).active ~ .indicator {
+    @apply translate-x-[calc(90px_*_3)] bg-primary-blue shadow-[0_15px_25px_#88C8FF99];
+}
+.desktop-navigation ul li:nth-child(5).active ~ .indicator {
+    @apply translate-x-[calc(90px_*_4)] bg-primary-blue shadow-[0_15px_25px_#88C8FF99];
+}

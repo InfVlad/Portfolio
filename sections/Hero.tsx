@@ -1,27 +1,44 @@
 "use client";
 
 import { renderCanvas } from "@/components";
-import { useEffect } from "react";
+import { useEffect, useState, useRef } from "react";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 
-const Hero = () => {
+// all this just to run renderCanvas on the second render, no the first (hydratation conflict)
+const useDidMountEffect = (func: any, deps: any) => {
+    const didMount = useRef(false);
     useEffect(() => {
-        renderCanvas();
+        if (didMount.current) {
+            func();
+        } else {
+            didMount.current = true;
+        }
+    }, deps);
+};
+
+const Hero = () => {
+    const [loaded, setLoaded] = useState(true);
+
+    useEffect(() => {
+        setLoaded(true);
     }, []);
+
+    useDidMountEffect(renderCanvas, [loaded]);
+
     return (
         <div className="section-hero" id="Home">
-            <div className="hero-section container mx-auto mb-20">
-                <div className="hero-section relative z-[3] flex min-h-screen w-full flex-col items-center justify-center">
+            <div className="section-hero container mx-auto mb-20">
+                <div className="section-hero relative z-[3] flex min-h-screen w-full flex-col items-center justify-center">
                     <div className="relative">
-                        <div className="pointer-events-none absolute right-0 top-[-7rem] z-[1] h-56 w-56 bg-secondary-purple opacity-50 blur-3xl" />
+                        <div className="lg:h-6w-60 pointer-events-none absolute right-0 top-[-7rem] z-[1] h-56 w-56 bg-secondary-purple opacity-50 blur-3xl lg:top-[-13rem] lg:right-[13rem] lg:w-60" />
                     </div>
-                    <h1 className="z-[2] mb-5 text-center text-5xl font-bold">Vladimir Infante</h1>
-                    <h3 className="z-[2] mb-4 text-xl font-semibold">FullStack Developer</h3>
+                    <h1 className="z-[2] mb-5 text-center text-5xl font-bold lg:text-7xl">Vladimir Infante</h1>
+                    <h3 className="z-[2] mb-4 text-xl font-semibold lg:text-2xl">FullStack Developer</h3>
                     <p className="z-[2] text-center text-lg">
                         I build great digital experiences using modern technologies
                     </p>
                     <div className="relative">
-                        <div className="pointer-events-none absolute left-0 top-[-1rem] z-[1] h-56 w-56 bg-secondary-blue opacity-50 blur-3xl" />
+                        <div className="lg:h-6w-60 pointer-events-none absolute left-0 top-[-1rem] z-[1] h-56 w-56 bg-secondary-blue opacity-50 blur-3xl lg:top-[1rem] lg:left-[12rem] lg:w-60" />
                     </div>
                     <div className="z-[2] mt-6 text-center">
                         <ul className="mb-0 inline-flex list-none flex-wrap gap-3 pl-0 sm:gap-4">
@@ -58,7 +75,7 @@ const Hero = () => {
                         </ul>
                     </div>
                 </div>
-                <canvas className="pointer-events-none absolute inset-1" id="canvas" />
+                {loaded && <canvas className="pointer-events-none absolute inset-1" id="canvas" />}
             </div>
         </div>
     );

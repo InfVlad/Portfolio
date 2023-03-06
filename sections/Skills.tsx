@@ -3,7 +3,7 @@ import { SkillCard } from "@/components";
 
 const Skills = () => {
     return (
-        <div className="section-skills" id="skills">
+        <div className="section-skills scroll-mt-10" id="skills">
             <div className="hero-section container mx-auto mb-20 pt-10 lg:pt-14">
                 <div className="section-heading relative overflow-hidden pb-14 text-center">
                     <h2 className="relative z-[3] mb-2 text-2xl uppercase lg:text-3xl">Skills</h2>
