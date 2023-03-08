@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa";
-import { toast } from "react-hot-toast";
+import toast, { Toaster } from "react-hot-toast";
 
 interface FormValues {
     name: string;
@@ -63,6 +63,7 @@ const Contact = () => {
     };
     return (
         <div className="contact-section scroll-mt-10" id="contact">
+            <Toaster />
             <div className="contact-section container mx-auto mb-20 pt-10 lg:pt-14">
                 <div className="section-heading relative overflow-hidden pb-14 text-center">
                     <h2 className="relative z-[3] mb-2 text-2xl uppercase lg:text-3xl">Contact</h2>

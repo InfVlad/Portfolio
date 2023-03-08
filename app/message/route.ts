@@ -1,4 +1,5 @@
-async function POST(request: Request) {
+// eslint-disable-next-line import/prefer-default-export
+export async function POST(request: Request) {
     // do something
     // const { name, email, message } = request.body.;
 
@@ -8,5 +9,3 @@ async function POST(request: Request) {
     console.log("message ", message);
     return new Response(`${name} thank you for your message!`);
 }
-
-export default POST;
