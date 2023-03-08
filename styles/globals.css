@@ -17,3 +17,21 @@
 .desktop-navigation ul li:nth-child(5).active ~ .indicator {
     @apply translate-x-[calc(90px_*_4)] bg-primary-blue shadow-[0_15px_25px_#88C8FF99];
 }
+
+.input-container span:before,
+.input-container span:after {
+    @apply absolute top-1/2 h-[5px] w-[10%] -translate-y-1/2 bg-dark-blue opacity-0 transition-all duration-300 content-[""];
+}
+.input-container span:before {
+    @apply left-1/2;
+}
+.input-container span:after {
+    @apply right-1/2;
+}
+.input-container.focus label {
+    @apply top-0 left-[25px] -translate-y-1/2 text-[0.8rem];
+}
+.input-container.focus span:before,
+.input-container.focus span:after {
+    @apply w-1/2 opacity-100;
+}

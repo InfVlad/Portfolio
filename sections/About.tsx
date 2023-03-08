@@ -19,16 +19,16 @@ const About = () => {
                     <div className="col-span-2 lg:col-span-1">
                         <div className="flex max-w-[90vw] flex-col items-start justify-center">
                             <p className="mb-6 text-xl font-semibold lg:text-2xl">Hi there!</p>
-                            <p className="text-md select-text pt-3 lg:text-xl">
+                            <p className="text-md select-text pt-3 text-base md:text-xl">
                                 My name is Vladimir Infante. I am a self-taught full-stack developer from Venezuela. I
                                 am passionate about technology, facing challenges, and learning new things. I deliver
                                 applications with good performance and engaging UI that make your experience an
                                 unforgettable memory.
                             </p>
-                            <p className="pt-3 text-xl">
+                            <p className="pt-3 text-base md:text-xl">
                                 If you have a project idea or are interested in working with me,
                             </p>
-                            <a href="#contact" className="text-xl text-primary-blue">
+                            <a href="#contact" className="text-base text-primary-blue md:text-xl">
                                 {" "}
                                 contact me!
                             </a>
