@@ -18,7 +18,7 @@ const ProjectCard = ({ title, imagesUrl, description, id }: ProjectCardProps) =>
                 <div className={id % 2 === 0 ? backgroundDecoration.purple : backgroundDecoration.blue} />
             </div>
             <div className="card group relative z-[3] my-10 h-36 w-80 rounded-xl bg-white bg-opacity-10 shadow-2xl backdrop-blur backdrop-filter transition-all duration-500 hover:h-[400px] active:h-[400px]">
-                <div className="imagebox absolute left-1/2 -top-1/2 z-[2] h-40 w-40 -translate-x-1/2 overflow-hidden rounded-xl bg-dark-blue shadow-2xl transition-all duration-500 group-hover:-top-[15%] group-hover:h-60 group-hover:w-60 group-active:-top-[15%] group-active:h-60 group-active:w-60">
+                <div className="imagebox absolute left-1/2 top-[-5rem] z-[2] h-40 w-40 -translate-x-1/2 overflow-hidden rounded-xl bg-dark-blue shadow-2xl transition-all duration-500 group-hover:h-60 group-hover:w-60 group-active:h-60 group-active:w-60">
                     <Image
                         src={imagesUrl[0]}
                         alt={`${title}`}

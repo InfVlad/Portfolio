@@ -16,6 +16,8 @@
                 "namedComponents": ["arrow-function", "function-declaration", "function-expression"],
                 "unnamedComponents": "arrow-function"
             }
-        ]
+        ],
+        "react/jsx-props-no-spreading": "off",
+        "jsx-a11y/label-has-associated-control": "off"
     }
 }
