@@ -4,8 +4,6 @@ import nodemailer from "nodemailer";
 export async function POST(request: Request) {
     try {
         const { name, email, message } = await request.json();
-        console.log(process.env.EMAIL_USER);
-        console.log(process.env.EMAIL_PASS);
 
         const transporter = nodemailer.createTransport({
             host: process.env.EMAIL_SERVICE,
@@ -17,6 +15,7 @@ export async function POST(request: Request) {
             },
             tls: {
                 ciphers: "SSLv3",
+                rejectUnauthorized: false,
             },
         });
 
