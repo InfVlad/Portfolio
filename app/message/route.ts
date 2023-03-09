@@ -24,6 +24,6 @@ export async function POST(request: Request) {
         console.log("Message sent: %s", info.messageId);
         return new Response(`${name} thank you for your message!`);
     } catch (error) {
-        console.error(error);
+        console.log(error);
     }
 }

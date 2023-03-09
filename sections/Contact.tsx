@@ -63,36 +63,36 @@ const Contact = () => {
     return (
         <div className="contact-section scroll-mt-10" id="contact">
             <Toaster />
-            <div className="container pt-10 mx-auto mb-20 contact-section lg:pt-14">
-                <div className="relative overflow-hidden text-center section-heading pb-14">
+            <div className="contact-section container mx-auto mb-20 pt-10 lg:pt-14">
+                <div className="section-heading relative overflow-hidden pb-14 text-center">
                     <h2 className="relative z-[3] mb-2 text-2xl uppercase lg:text-3xl">Contact</h2>
-                    <span className="absolute z-0 text-6xl font-bold text-white uppercase transform -translate-x-1/2 pointer-events-none left-1/2 -top-1 opacity-5 lg:text-7xl">
+                    <span className="pointer-events-none absolute left-1/2 -top-1 z-0 -translate-x-1/2 transform text-6xl font-bold uppercase text-white opacity-5 lg:text-7xl">
                         Contact
                     </span>
                 </div>
-                <div className="relative flex items-center justify-center w-full overflow-hidden form-container">
+                <div className="form-container relative flex w-full items-center justify-center overflow-hidden">
                     <div className="form z-[3] grid h-fit w-full max-w-[410px] grid-cols-1 overflow-hidden rounded-lg border border-solid border-primary-blue mdl:h-[500px] mdl:max-w-[820px] mdl:grid-cols-2">
                         <div className="contact-info relative bg-primary-blue px-[2.2rem] py-[2.3rem] text-dark-blue">
-                            <h3 className="mb-3 text-xl font-semibold title">Let&apos;s get in touch</h3>
-                            <p className="mt-6 font-medium text">
+                            <h3 className="title mb-3 text-xl font-semibold">Let&apos;s get in touch</h3>
+                            <p className="text mt-6 font-medium">
                                 I would love to hear from you. Whether It&apos;s a project, job opportuniy or just a
                                 chat. Feel free to contact me.
                             </p>
                             <p className="mt-6 text-lg font-semibold">Connect with me:</p>
                             <div className="z-[2] mt-6 text-left">
-                                <ul className="inline-flex flex-wrap gap-3 pl-0 mb-0 list-none sm:gap-4">
+                                <ul className="mb-0 inline-flex list-none flex-wrap gap-3 pl-0 sm:gap-4">
                                     <li className="inline-block align-middle">
                                         <a
                                             href="https://github.com/InfVlad"
                                             target="_blank"
                                             aria-label="checkout the github page for more information"
                                             rel="noopener noreferrer"
-                                            className="flex flex-wrap w-10 h-10 overflow-hidden text-xl text-center border rounded group border-dark-blue border-opacity-10"
+                                            className="group flex h-10 w-10 flex-wrap overflow-hidden rounded border border-dark-blue border-opacity-10 text-center text-xl"
                                         >
-                                            <span className="flex items-center justify-center w-full h-full transition-all duration-500 rounded bg-dark-blue text-primary-blue group-hover:-translate-y-full">
+                                            <span className="flex h-full w-full items-center justify-center rounded bg-dark-blue text-primary-blue transition-all duration-500 group-hover:-translate-y-full">
                                                 <FaGithub />
                                             </span>
-                                            <span className="flex items-center justify-center w-full h-full transition-all duration-500 border-2 rounded border-dark-blue bg-primary-blue text-dark-blue group-hover:-translate-y-full">
+                                            <span className="flex h-full w-full items-center justify-center rounded border-2 border-dark-blue bg-primary-blue text-dark-blue transition-all duration-500 group-hover:-translate-y-full">
                                                 <FaGithub />
                                             </span>
                                         </a>
@@ -103,12 +103,12 @@ const Contact = () => {
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             aria-label="checkout the linkedin profile for more information"
-                                            className="flex flex-wrap w-10 h-10 overflow-hidden text-xl text-center border rounded group border-dark-blue border-opacity-10"
+                                            className="group flex h-10 w-10 flex-wrap overflow-hidden rounded border border-dark-blue border-opacity-10 text-center text-xl"
                                         >
-                                            <span className="flex items-center justify-center w-full h-full transition-all duration-500 rounded bg-dark-blue text-primary-blue group-hover:-translate-y-full">
+                                            <span className="flex h-full w-full items-center justify-center rounded bg-dark-blue text-primary-blue transition-all duration-500 group-hover:-translate-y-full">
                                                 <FaLinkedinIn />
                                             </span>
-                                            <span className="flex items-center justify-center w-full h-full transition-all duration-500 border-2 rounded border-dark-blue bg-primary-blue text-dark-blue group-hover:-translate-y-full">
+                                            <span className="flex h-full w-full items-center justify-center rounded border-2 border-dark-blue bg-primary-blue text-dark-blue transition-all duration-500 group-hover:-translate-y-full">
                                                 <FaLinkedinIn />
                                             </span>
                                         </a>
@@ -117,12 +117,12 @@ const Contact = () => {
                             </div>
                             <span className="z-32 absolute bottom-[-13px] right-[65px] h-[26px] w-[26px] rotate-45 bg-primary-blue mdl:top-[50px] mdl:right-[-13px] mdl:block" />
                         </div>
-                        <div className="relative contact-form text-primary-blue">
+                        <div className="contact-form relative text-primary-blue">
                             <form
                                 className="relative z-[4] overflow-hidden py-[2.3rem] px-[2.2rem]"
                                 onSubmit={handleSubmit(handleSendMessage)}
                             >
-                                <h3 className="mb-5 text-xl font-semibold title">Contact me</h3>
+                                <h3 className="title mb-5 text-xl font-semibold">Contact me</h3>
                                 <div className={`${isFocused("name")}input-container relative mx-0 my-4`}>
                                     <input
                                         type="text"
