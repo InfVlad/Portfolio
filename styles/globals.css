@@ -35,3 +35,10 @@
 .input-container.focus span:after {
     @apply w-1/2 opacity-100;
 }
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus {
+  -webkit-text-fill-color: #88C8FF;
+  -webkit-box-shadow: 0 0 0px 40rem #141625 inset;
+}
