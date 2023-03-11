@@ -37,8 +37,8 @@
 }
 
 input:-webkit-autofill,
-input:-webkit-autofill:hover, 
+input:-webkit-autofill:hover,
 input:-webkit-autofill:focus {
-  -webkit-text-fill-color: #88C8FF;
-  -webkit-box-shadow: 0 0 0px 40rem #141625 inset;
+    -webkit-text-fill-color: #88c8ff;
+    -webkit-box-shadow: 0 0 0px 40rem #141625 inset;
 }
