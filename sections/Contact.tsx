@@ -196,7 +196,7 @@ const Contact = () => {
                                 <input
                                     type="submit"
                                     value="Send"
-                                    className="btn m-0 cursor-pointer rounded-[25px] border-2 border-solid border-primary-blue bg-primary-blue px-[1.3rem] py-[0.6rem] text-base text-dark-blue outline-none transition-all duration-300 hover:bg-transparent hover:text-primary-blue"
+                                    className="btn m-0 w-full cursor-pointer rounded-[25px] border-2 border-solid border-primary-blue bg-primary-blue px-[1.3rem] py-[0.6rem] text-base font-bold text-dark-blue outline-none transition-all duration-300 hover:bg-transparent hover:text-primary-blue"
                                 />
                             </form>
                         </div>
