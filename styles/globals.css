@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+    @apply scroll-smooth
+}
+
 .desktop-navigation ul li:nth-child(1).active ~ .indicator {
     @apply translate-x-[calc(90px_*_0)] bg-primary-blue shadow-[0_15px_25px_#88C8FF99];
 }

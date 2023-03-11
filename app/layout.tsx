@@ -12,7 +12,7 @@ const radioCanada = Radio_Canada({
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
     return (
-        <html lang="en" className={`scroll-smooth ${radioCanada.className}`}>
+        <html lang="en" className={radioCanada.className}>
             <body>{children}</body>
         </html>
     );

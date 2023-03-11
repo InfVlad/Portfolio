@@ -17,7 +17,8 @@
                 "unnamedComponents": "arrow-function"
             }
         ],
-        "react/jsx-props-no-spreading": "off",
-        "jsx-a11y/label-has-associated-control": "off"
+        "react/jsx-props-no-spreading": "off", //makes easier to work with react form hook
+        "jsx-a11y/label-has-associated-control": "off",
+        "react/no-array-index-key":"off" //for a small project shouldn't be a problem
     }
 }
