@@ -1,7 +1,18 @@
+"use client";
+
+import { useState } from "react";
 import { projectsList } from "@/utils/projectsData";
-import { ProjectCard } from "@/components";
+import { ProjectCard, ProjectModal } from "@/components";
 
 const Projects = () => {
+    const [projectIndex, setProjectIndex] = useState<number>(1);
+    const [showModal, setShowModal] = useState(false);
+
+    const handleOpenProject = (newIndex: number) => {
+        setProjectIndex(newIndex);
+        setShowModal((prev) => !prev);
+    };
+
     return (
         <div className="section-projects scroll-mt-10" id="projects">
             <div className="hero-section container mx-auto pt-10 lg:pt-14">
@@ -12,18 +23,32 @@ const Projects = () => {
                     </span>
                 </div>
                 <div className="projects-wrapper flex flex-wrap items-center justify-center sm:justify-evenly">
-                    {projectsList.map((project) => {
+                    {projectsList.map((project, index) => {
                         return (
                             <ProjectCard
-                                key={project.id}
+                                key={index}
                                 title={project.title}
                                 imagesUrl={project.imagesUrl}
                                 id={project.id}
                                 description={project.description}
+                                handleOpenProject={handleOpenProject}
                             />
                         );
                     })}
                 </div>
+                {showModal && (
+                    <ProjectModal
+                        title={projectsList[projectIndex].title}
+                        about={projectsList[projectIndex].about}
+                        deploymentUrl={projectsList[projectIndex].deploymentUrl}
+                        features={projectsList[projectIndex].features}
+                        disclaimer={projectsList[projectIndex].disclaimer}
+                        githubUrl={projectsList[projectIndex].githubUrl}
+                        imagesUrl={projectsList[projectIndex].imagesUrl}
+                        technologies={projectsList[projectIndex].technologies}
+                        setShowModal={setShowModal}
+                    />
+                )}
             </div>
         </div>
     );

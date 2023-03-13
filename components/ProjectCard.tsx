@@ -4,14 +4,17 @@ import Image from "next/image";
 import { ProjectsInterface } from "@/utils/projectsData";
 import { FaEye } from "react-icons/fa";
 
-type ProjectCardProps = Pick<ProjectsInterface, "title" | "description" | "imagesUrl" | "id">;
+// i could just create ProjectCardProps with title and everything else, but doing it this way just to implement utility types
+interface ProjectCardProps extends Pick<ProjectsInterface, "title" | "imagesUrl" | "description" | "id"> {
+    handleOpenProject: (index: number) => void;
+}
 
 const backgroundDecoration = {
     purple: "pointer-events-none absolute right-0 top-[-7rem] z-[1] h-56 w-56 bg-secondary-purple opacity-50 blur-3xl",
     blue: "pointer-events-none absolute left-0 top-[-7rem] z-[1] h-56 w-56 bg-secondary-blue opacity-50 blur-3xl",
 };
 
-const ProjectCard = ({ title, imagesUrl, description, id }: ProjectCardProps) => {
+const ProjectCard = ({ title, imagesUrl, description, id, handleOpenProject }: ProjectCardProps) => {
     return (
         <div className="relative my-6 min-h-[500px]">
             <div className="relative">
@@ -34,7 +37,7 @@ const ProjectCard = ({ title, imagesUrl, description, id }: ProjectCardProps) =>
                         <button
                             type="button"
                             className="my-4 flex items-center justify-center gap-1 rounded-xl bg-primary-blue p-4 py-2 text-xl font-semibold text-dark-blue transition-all duration-500 hover:shadow-md hover:shadow-primary-blue"
-                            onClick={() => console.log(id)}
+                            onClick={() => handleOpenProject(id - 1)}
                         >
                             <FaEye />
                             View Project

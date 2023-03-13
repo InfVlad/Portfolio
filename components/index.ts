@@ -3,3 +3,4 @@ export { default as Navbar } from "./Navbar";
 export { default as ProjectCard } from "./ProjectCard";
 export { default as SkillCard } from "./SkillCard";
 export { default as renderCanvas } from "./renderCanvas";
+export { default as ProjectModal } from "./ProjectModal";
