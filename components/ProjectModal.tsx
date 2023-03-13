@@ -1,7 +1,8 @@
 "use client";
 
-import { ProjectsInterface } from "@/utils/projectsData";
+import Image from "next/image";
 import { Dispatch, SetStateAction, useState } from "react";
+import { ProjectsInterface } from "@/utils/projectsData";
 import { AiFillCloseCircle } from "react-icons/ai";
 
 interface ModalProps extends Omit<ProjectsInterface, "id" | "description"> {
@@ -32,20 +33,24 @@ const ProjectModal = ({
                 </button>
                 <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
                     <div className="mt-4 flex h-full w-full flex-col items-center">
-                        <div className="mb-6 h-96 w-[95%] overflow-hidden">
-                            <img
+                        <div className="relative mb-6 h-96 w-[95%] overflow-hidden">
+                            <Image
                                 src={imagesUrl[imageIndex]}
-                                alt="something"
-                                className="h-96 w-[95%] rounded-xl object-contain"
+                                alt="website miniature"
+                                fill
+                                className="h-96 w-[95%] rounded-xl"
+                                style={{ objectFit: "contain" }}
                             />
                         </div>
                         <div className="flex gap-4">
                             {imagesUrl.map((image, index) => {
                                 return (
-                                    <img
+                                    <Image
                                         key={index}
                                         src={image}
-                                        className="h-14 w-14 cursor-pointer rounded-md"
+                                        width={60}
+                                        height={60}
+                                        style={{ objectFit: "cover", cursor: "pointer", borderRadius: "6px" }}
                                         onMouseEnter={() => setImageIndex(index)}
                                         alt="miniature of the web app"
                                     />
