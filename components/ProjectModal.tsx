@@ -2,6 +2,7 @@
 
 import { ProjectsInterface } from "@/utils/projectsData";
 import { Dispatch, SetStateAction, useState } from "react";
+import { AiFillCloseCircle } from "react-icons/ai";
 
 interface ModalProps extends Omit<ProjectsInterface, "id" | "description"> {
     setShowModal: Dispatch<SetStateAction<boolean>>;
@@ -21,7 +22,14 @@ const ProjectModal = ({
     const [imageIndex, setImageIndex] = useState<number>(0);
     return (
         <div className="fixed top-0 left-0 z-[10] flex h-full min-h-screen w-full items-center justify-center bg-black bg-opacity-90 px-4 py-5">
-            <div className="max-h-screen w-full max-w-[85vw] overflow-y-scroll rounded-[20px] bg-dark-blue py-12 px-8 text-center text-primary-blue md:py-[60px] md:px-[70px]">
+            <div className="relative max-h-screen w-full max-w-[85vw] overflow-y-scroll rounded-[20px] bg-dark-blue py-12 px-8 text-center text-primary-blue md:py-[60px] md:px-[70px] lg:overflow-y-auto">
+                <button
+                    type="button"
+                    className="absolute top-7 right-7 text-4xl text-red-400"
+                    onClick={() => setShowModal((prev) => !prev)}
+                >
+                    <AiFillCloseCircle />
+                </button>
                 <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
                     <div className="mt-4 flex h-full w-full flex-col items-center">
                         <div className="mb-6 h-96 w-[95%] overflow-hidden">
@@ -86,7 +94,7 @@ const ProjectModal = ({
                                 href={githubUrl}
                                 target="_blank"
                                 rel="noreferrer"
-                                className="cursor-pointer rounded-3xl border-2 border-primary-blue bg-primary-blue px-2 py-1 font-bold text-dark-blue transition-colors duration-300 hover:bg-dark-blue hover:text-primary-blue"
+                                className="w-1/3 cursor-pointer rounded-3xl border-2 border-primary-blue bg-primary-blue px-2 py-2 font-bold text-dark-blue transition-colors duration-300 hover:bg-dark-blue hover:text-primary-blue"
                             >
                                 Code
                             </a>
@@ -94,19 +102,12 @@ const ProjectModal = ({
                                 href={deploymentUrl}
                                 target="_blank"
                                 rel="noreferrer"
-                                className="cursor-pointer rounded-3xl border-2 border-primary-blue bg-primary-blue px-2 py-1 font-bold text-dark-blue transition-colors duration-300 hover:bg-dark-blue hover:text-primary-blue"
+                                className="w-1/3 cursor-pointer rounded-3xl border-2 border-primary-blue bg-primary-blue px-2 py-2 font-bold text-dark-blue transition-colors duration-300 hover:bg-dark-blue hover:text-primary-blue"
                             >
                                 Demo
                             </a>
                         </div>
                         <div className="text-red-400">{disclaimer}</div>
-                        <button
-                            type="button"
-                            className="rounded-xl bg-primary-blue font-bold text-dark-blue"
-                            onClick={() => setShowModal((prev) => !prev)}
-                        >
-                            Close
-                        </button>
                     </div>
                 </div>
             </div>

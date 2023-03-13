@@ -2,11 +2,14 @@
 
 import { useState } from "react";
 import { projectsList } from "@/utils/projectsData";
-import { ProjectCard, ProjectModal } from "@/components";
+import { ProjectCard } from "@/components";
+import dynamic from "next/dynamic";
+
+const ProjectModal = dynamic(() => import("@/components/ProjectModal"));
 
 const Projects = () => {
-    const [projectIndex, setProjectIndex] = useState<number>(1);
-    const [showModal, setShowModal] = useState(false);
+    const [projectIndex, setProjectIndex] = useState<number>(0);
+    const [showModal, setShowModal] = useState<boolean>(false);
 
     const handleOpenProject = (newIndex: number) => {
         setProjectIndex(newIndex);
