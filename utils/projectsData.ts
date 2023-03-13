@@ -56,7 +56,7 @@ export const projectsList: ProjectsInterface[] = [
             "For the backend, I created my own Rest Endpoints, worked with NextAuth for authentication, and decided to go with MongoDb as database.",
         ],
         githubUrl: "https://github.com/InfVlad/Ecommerce-AwesomeGear",
-        deploymentUrl: "https//awesome-gear-shop.vercel.app",
+        deploymentUrl: "https://awesome-gear-shop.vercel.app",
         disclaimer: "Serverless cold starts might be slow",
     },
     {
