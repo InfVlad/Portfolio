@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { Dispatch, SetStateAction, useState } from "react";
+import { Dispatch, SetStateAction, useState, useEffect } from "react";
 import { ProjectsInterface } from "@/utils/projectsData";
 import { AiFillCloseCircle } from "react-icons/ai";
 
@@ -21,6 +21,14 @@ const ProjectModal = ({
     setShowModal,
 }: ModalProps) => {
     const [imageIndex, setImageIndex] = useState<number>(0);
+
+    useEffect(() => {
+        document.body.style.overflow = "hidden";
+        return () => {
+            document.body.style.overflow = "unset";
+        };
+    }, []);
+
     return (
         <div className="fixed top-0 left-0 z-[10] flex h-full min-h-screen w-full items-center justify-center bg-black bg-opacity-90 px-4 py-5">
             <div className="relative max-h-screen w-full max-w-[85vw] overflow-y-scroll rounded-[20px] bg-dark-blue py-12 px-8 text-center text-primary-blue md:py-[60px] md:px-[70px] lg:overflow-y-auto">
@@ -121,39 +129,3 @@ const ProjectModal = ({
 };
 
 export default ProjectModal;
-
-/*
-
-const { image, name, details, price } = product;
-	const [index, setIndex] = useState(0);
-	const { decQty, incQty, qty, onAdd, setQty, setShowCart } = useStateContext();
-
-
-
-	return (
-		<div>
-			<div className="product-detail-container">
-				<div>
-					<div className="image-container">
-						<img
-							src={urlFor(image && image[index])}
-							alt=""
-							className="product-detail-image"
-						/>
-					</div>
-					<div className="small-images-container">
-						{image?.map((item, i) => (
-							<img
-								key={i}
-								src={urlFor(item)}
-								className={
-									i === index ? "small-image selected-image" : "small-image"
-								}
-								onMouseEnter={() => setIndex(i)}
-							/>
-						))}
-					</div>
-				</div>
-
-
-*/
