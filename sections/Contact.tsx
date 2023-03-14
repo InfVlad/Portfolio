@@ -4,19 +4,26 @@ import { useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 import toast, { Toaster } from "react-hot-toast";
+import axios from "axios";
+import { Loader } from "@/components";
 
 interface FormValues {
     name: string;
     email: string;
     message: string;
 }
+interface ResponseMessage {
+    message: string;
+}
 
 const Contact = () => {
     const [focused, setFocused] = useState<string | null>(null);
+    const [loading, setLoading] = useState(false);
     const {
         handleSubmit,
         register,
         getValues,
+        reset,
         formState: { errors },
     } = useForm<FormValues>();
 
@@ -41,21 +48,16 @@ const Contact = () => {
 
     const handleSendMessage: SubmitHandler<FormValues> = async (formData) => {
         try {
-            const response = await fetch("/message", {
-                method: "POST",
-                body: JSON.stringify(formData),
-                headers: {
-                    "Content-Type": "application/json",
-                },
-            });
-            if (!response?.ok) {
+            setLoading(true);
+            const response = await axios.post<ResponseMessage>("/message", formData);
+            if (response.status !== 200) {
+                setLoading(false);
                 toast.error("Something went wrong, don't worry we already sent pandas to fix it");
-                console.log("Code: ", response.status);
-                return;
             }
-            const data = await response.text();
+            setLoading(false);
+            reset();
             toast.success("Email sent successfully!");
-            setTimeout(() => toast.success(data), 1500);
+            setTimeout(() => toast.success(response.data.message), 1500);
         } catch (error) {
             console.error(error);
         }
@@ -75,7 +77,7 @@ const Contact = () => {
                         <div className="contact-info relative bg-primary-blue px-[2.2rem] py-[2.3rem] text-dark-blue">
                             <h3 className="title mb-3 text-xl font-semibold">Let&apos;s get in touch</h3>
                             <p className="text mt-6 font-medium">
-                                I would love to hear from you. Whether It&apos;s a project, job opportuniy or just a
+                                I would love to hear from you. Whether It&apos;s a project, job opportunity or just a
                                 chat. Feel free to contact me.
                             </p>
                             <p className="mt-6 text-lg font-semibold">Connect with me:</p>
@@ -193,11 +195,12 @@ const Contact = () => {
                                     </span>
                                     {errors?.message && <div className="text-red">{errors.message.message}</div>}
                                 </div>
-                                <input
+                                <button
                                     type="submit"
-                                    value="Send"
                                     className="btn m-0 w-full cursor-pointer rounded-[25px] border-2 border-solid border-primary-blue bg-primary-blue px-[1.3rem] py-[0.6rem] text-base font-bold text-dark-blue outline-none transition-all duration-300 hover:bg-transparent hover:text-primary-blue"
-                                />
+                                >
+                                    {loading ? <Loader /> : "Send"}
+                                </button>
                             </form>
                         </div>
                     </div>

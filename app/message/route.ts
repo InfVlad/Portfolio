@@ -1,4 +1,5 @@
 import nodemailer from "nodemailer";
+import { NextResponse } from "next/server";
 
 // eslint-disable-next-line import/prefer-default-export
 export async function POST(request: Request) {
@@ -26,7 +27,7 @@ export async function POST(request: Request) {
             text: `${name} \nemail: ${email}\nSays: ${message}`,
         });
         console.log("Message sent: %s", info.messageId);
-        return new Response(`${name} thank you for your message!`);
+        return NextResponse.json({ message: `${name} thank you for your message!` });
     } catch (error) {
         console.log(error);
     }
