@@ -29,7 +29,10 @@ const About = () => {
                             <p className="pt-3 text-base md:text-xl">
                                 If you have a project idea or are interested in working with me,
                             </p>
-                            <a href="#contact" className="text-base text-primary-blue md:text-xl">
+                            <a
+                                href="#contact"
+                                className="text-base text-primary-blue hover:text-secondary-blue md:text-xl"
+                            >
                                 {" "}
                                 contact me!
                             </a>
