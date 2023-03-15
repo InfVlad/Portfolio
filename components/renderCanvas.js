@@ -119,6 +119,14 @@ function resizeCanvas() {
     ctx.canvas.height = window.innerHeight;
 }
 
+function debounce(func) {
+    var timer;
+    return function (event) {
+        if (timer) clearTimeout(timer);
+        timer = setTimeout(func, 100, event);
+    };
+}
+
 var ctx,
     f,
     e = 0,
@@ -141,6 +149,7 @@ function Node() {
 
 const renderCanvas = function () {
     ctx = document.getElementById("canvas").getContext("2d");
+    // var ctd = document.getElementById("canvas");
     ctx.running = true;
     ctx.frame = 1;
     f = new n({
@@ -151,8 +160,8 @@ const renderCanvas = function () {
     });
     document.addEventListener("mousemove", onMousemove);
     document.addEventListener("touchstart", onMousemove);
-    document.body.addEventListener("orientationchange", resizeCanvas);
-    window.addEventListener("resize", resizeCanvas);
+    document.body.addEventListener("orientationchange", debounce(resizeCanvas));
+    window.addEventListener("resize", debounce(resizeCanvas));
     window.addEventListener("focus", () => {
         if (!ctx.running) {
             ctx.running = true;

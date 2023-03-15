@@ -31,7 +31,7 @@ const ProjectModal = ({
 
     return (
         <div className="fixed top-0 left-0 z-[10] flex h-full min-h-screen w-full items-center justify-center bg-black bg-opacity-90 px-4 py-5">
-            <div className="relative max-h-screen w-full max-w-[85vw] overflow-y-scroll rounded-[20px] bg-dark-blue py-12 px-8 text-center text-primary-blue md:py-[60px] md:px-[70px] lg:overflow-y-auto">
+            <div className="relative max-h-screen w-full max-w-[85vw] overflow-y-scroll rounded-[20px] bg-dark-blue py-12 px-2 text-center text-primary-blue md:px-8 md:py-[60px] md:px-[70px] lg:overflow-y-auto">
                 <button
                     type="button"
                     className="absolute top-7 right-7 text-4xl text-red-400"
@@ -50,7 +50,7 @@ const ProjectModal = ({
                                 style={{ objectFit: "contain" }}
                             />
                         </div>
-                        <div className="flex gap-4">
+                        <div className="flex flex-wrap items-center justify-center gap-4">
                             {imagesUrl.map((image, index) => {
                                 return (
                                     <Image
@@ -58,7 +58,13 @@ const ProjectModal = ({
                                         src={image}
                                         width={60}
                                         height={60}
-                                        style={{ objectFit: "cover", cursor: "pointer", borderRadius: "6px" }}
+                                        style={{
+                                            objectFit: "cover",
+                                            cursor: "pointer",
+                                            borderRadius: "6px",
+                                            minWidth: "60px",
+                                            minHeight: "60px",
+                                        }}
                                         onMouseEnter={() => setImageIndex(index)}
                                         alt="miniature of the web app"
                                     />
@@ -66,7 +72,7 @@ const ProjectModal = ({
                             })}
                         </div>
                     </div>
-                    <div className="max-h-[80vh] overflow-y-scroll px-5">
+                    <div className="max-h-[80vh] overflow-y-scroll px-1 sm:px-5">
                         <div className="mb-6 text-2xl font-bold">Project: {title}</div>
                         <div className="my-4 text-xl">Technologies</div>
                         <ul>

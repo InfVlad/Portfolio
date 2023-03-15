@@ -3,9 +3,9 @@ const Footer = () => {
         <div className="footer w-full text-white">
             <div className="mx-auto flex flex-col items-center justify-center py-8">
                 <div className="pb-2">
-                    <p>
+                    <p className="px-4">
                         This site was built with NextJs, you can check the code{" "}
-                        <span className="text-primary-blue">
+                        <span className="text-primary-blue hover:text-secondary-blue">
                             <a
                                 href="https://github.com/InfVlad/Portfolio"
                                 target="_blank"
