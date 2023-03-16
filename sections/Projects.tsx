@@ -4,16 +4,17 @@ import { useState } from "react";
 import { projectsList } from "@/utils/projectsData";
 import { ProjectCard } from "@/components";
 import dynamic from "next/dynamic";
+import { AnimatePresence, useCycle } from "framer-motion";
 
 const ProjectModal = dynamic(() => import("@/components/ProjectModal"));
 
 const Projects = () => {
     const [projectIndex, setProjectIndex] = useState<number>(0);
-    const [showModal, setShowModal] = useState<boolean>(false);
+    const [showModal, cycleShowModal] = useCycle(false, true);
 
     const handleOpenProject = (newIndex: number) => {
         setProjectIndex(newIndex);
-        setShowModal((prev) => !prev);
+        cycleShowModal();
     };
 
     return (
@@ -39,19 +40,21 @@ const Projects = () => {
                         );
                     })}
                 </div>
-                {showModal && (
-                    <ProjectModal
-                        title={projectsList[projectIndex].title}
-                        about={projectsList[projectIndex].about}
-                        deploymentUrl={projectsList[projectIndex].deploymentUrl}
-                        features={projectsList[projectIndex].features}
-                        disclaimer={projectsList[projectIndex].disclaimer}
-                        githubUrl={projectsList[projectIndex].githubUrl}
-                        imagesUrl={projectsList[projectIndex].imagesUrl}
-                        technologies={projectsList[projectIndex].technologies}
-                        setShowModal={setShowModal}
-                    />
-                )}
+                <AnimatePresence>
+                    {showModal && (
+                        <ProjectModal
+                            title={projectsList[projectIndex].title}
+                            about={projectsList[projectIndex].about}
+                            deploymentUrl={projectsList[projectIndex].deploymentUrl}
+                            features={projectsList[projectIndex].features}
+                            disclaimer={projectsList[projectIndex].disclaimer}
+                            githubUrl={projectsList[projectIndex].githubUrl}
+                            imagesUrl={projectsList[projectIndex].imagesUrl}
+                            technologies={projectsList[projectIndex].technologies}
+                            cycleShowModal={cycleShowModal}
+                        />
+                    )}
+                </AnimatePresence>
             </div>
         </div>
     );

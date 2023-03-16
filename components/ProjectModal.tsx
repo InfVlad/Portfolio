@@ -1,12 +1,13 @@
 "use client";
 
 import Image from "next/image";
-import { Dispatch, SetStateAction, useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { ProjectsInterface } from "@/utils/projectsData";
 import { AiFillCloseCircle } from "react-icons/ai";
+import { motion, Cycle } from "framer-motion";
 
 interface ModalProps extends Omit<ProjectsInterface, "id" | "description"> {
-    setShowModal: Dispatch<SetStateAction<boolean>>;
+    cycleShowModal: Cycle;
 }
 
 const ProjectModal = ({
@@ -18,7 +19,7 @@ const ProjectModal = ({
     githubUrl,
     deploymentUrl,
     disclaimer,
-    setShowModal,
+    cycleShowModal,
 }: ModalProps) => {
     const [imageIndex, setImageIndex] = useState<number>(0);
 
@@ -30,12 +31,34 @@ const ProjectModal = ({
     }, []);
 
     return (
-        <div className="fixed top-0 left-0 z-[10] flex h-full min-h-screen w-full items-center justify-center bg-black bg-opacity-90 px-4 py-5">
-            <div className="relative max-h-screen w-full max-w-[85vw] overflow-y-scroll rounded-[20px] bg-dark-blue py-12 px-2 text-center text-primary-blue md:px-8 md:py-[60px] md:px-[70px] lg:overflow-y-auto">
+        <motion.div
+            initial={{ opacity: 0 }}
+            animate={{
+                opacity: 1,
+            }}
+            transition={{ duration: 0.35 }}
+            exit={{
+                opacity: 0,
+            }}
+            className="fixed top-0 left-0 z-[10] flex h-full min-h-screen w-full items-center justify-center bg-black bg-opacity-90 px-4 py-5"
+        >
+            <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{
+                    opacity: 1,
+                    scale: 1,
+                }}
+                transition={{ duration: 0.35 }}
+                exit={{
+                    opacity: 0,
+                    scale: 0.8,
+                }}
+                className="relative max-h-screen w-full max-w-[85vw] overflow-y-scroll rounded-[20px] bg-dark-blue py-12 px-2 text-center text-primary-blue md:px-8 md:py-[60px] md:px-[70px] lg:overflow-y-auto"
+            >
                 <button
                     type="button"
                     className="absolute top-7 right-7 text-4xl text-red-400"
-                    onClick={() => setShowModal((prev) => !prev)}
+                    onClick={() => cycleShowModal()}
                 >
                     <AiFillCloseCircle />
                 </button>
@@ -129,8 +152,8 @@ const ProjectModal = ({
                         <div className="text-red-400">{disclaimer}</div>
                     </div>
                 </div>
-            </div>
-        </div>
+            </motion.div>
+        </motion.div>
     );
 };
 
