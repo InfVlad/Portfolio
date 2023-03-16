@@ -1,17 +1,32 @@
+"use client";
+
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 const About = () => {
     return (
         <div className="section-about relative z-[4] scroll-mt-10" id="about">
             <div className="section-about container relative z-[3] mx-auto mb-20 pt-10 lg:pt-14">
                 <div className="pointer-events-none absolute right-[-10%] top-[4%] z-[1] h-60 w-60 rounded-full bg-secondary-purple opacity-40 blur-3xl md:right-[10%] lg:top-[-26%] lg:right-[-5%] lg:h-96 lg:w-96 xl:top-[-35%] xl:right-[-5%] xl:h-[25rem] xl:w-[25rem]" />
-                <div className="section-heading relative z-[4] overflow-hidden pb-14 text-center">
+                <motion.div
+                    initial={{ opacity: 0, translateY: 45 }}
+                    whileInView={{ translateY: 0, opacity: 1 }}
+                    transition={{ duration: 0.45, delay: 0.25, ease: "easeInOut" }}
+                    viewport={{ once: true }}
+                    className="section-heading relative z-[4] overflow-hidden pb-14 text-center"
+                >
                     <h2 className="relative z-[3] mb-2 text-2xl uppercase lg:text-3xl">About</h2>
                     <span className="pointer-events-none absolute left-1/2 -top-1 z-0 -translate-x-1/2 transform text-6xl font-bold uppercase text-white opacity-5 lg:text-7xl">
                         About
                     </span>
-                </div>
-                <div className="z-[4] mx-auto grid max-w-[90vw] grid-cols-2 items-center gap-7">
+                </motion.div>
+                <motion.div
+                    initial={{ opacity: 0, translateY: 45 }}
+                    whileInView={{ translateY: 0, opacity: 1 }}
+                    transition={{ duration: 0.5, delay: 0.55, ease: "easeInOut" }}
+                    viewport={{ once: true }}
+                    className="z-[4] mx-auto grid max-w-[90vw] grid-cols-2 items-center gap-7"
+                >
                     <div className="z-[4] col-span-2 items-center lg:col-span-1">
                         <div className="z-[10] flex h-full w-full items-center justify-center">
                             <Image src="/assets/about-image.svg" width={400} height={400} alt="man in desk" />
@@ -38,7 +53,7 @@ const About = () => {
                             </a>
                         </div>
                     </div>
-                </div>
+                </motion.div>
             </div>
         </div>
     );

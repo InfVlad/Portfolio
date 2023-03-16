@@ -6,6 +6,7 @@ import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 import toast, { Toaster } from "react-hot-toast";
 import axios from "axios";
 import { Loader } from "@/components";
+import { motion } from "framer-motion";
 
 interface FormValues {
     name: string;
@@ -67,14 +68,26 @@ const Contact = () => {
             <Toaster />
             <div className="contact-section container relative z-[3] mx-auto mb-20 pt-10 lg:pt-14">
                 <div className="pointer-events-none absolute right-[-10%] top-[-10%] z-[0] h-60 w-60 rounded-full bg-secondary-purple opacity-40 blur-3xl md:right-[5%] lg:top-[-18%] lg:right-[-5%] lg:h-96 lg:w-96 xl:top-[-20%] xl:right-[-5%] xl:h-[30rem] xl:w-[30rem]" />
-                <div className="section-heading relative overflow-hidden pb-14 text-center">
+                <motion.div
+                    initial={{ opacity: 0, translateY: 45 }}
+                    whileInView={{ translateY: 0, opacity: 1 }}
+                    transition={{ duration: 0.4, delay: 0.2, ease: "easeInOut" }}
+                    viewport={{ once: true }}
+                    className="section-heading relative overflow-hidden pb-14 text-center"
+                >
                     <h2 className="relative z-[3] mb-2 text-2xl uppercase lg:text-3xl">Contact</h2>
                     <span className="pointer-events-none absolute left-1/2 -top-1 z-[2] -translate-x-1/2 transform text-6xl font-bold uppercase text-white opacity-5 lg:text-7xl">
                         Contact
                     </span>
-                </div>
+                </motion.div>
                 <div className="form-container relative flex w-full items-center justify-center overflow-hidden">
-                    <div className="form z-[3] grid h-fit w-full max-w-[410px] grid-cols-1 overflow-hidden rounded-lg border border-solid border-primary-blue mdl:h-[500px] mdl:max-w-[820px] mdl:grid-cols-2">
+                    <motion.div
+                        initial={{ opacity: 0, translateY: 45 }}
+                        whileInView={{ translateY: 0, opacity: 1 }}
+                        transition={{ duration: 0.5, delay: 0.55, ease: "easeInOut" }}
+                        viewport={{ once: true }}
+                        className="form z-[3] grid h-fit w-full max-w-[410px] grid-cols-1 overflow-hidden rounded-lg border border-solid border-primary-blue mdl:h-[500px] mdl:max-w-[820px] mdl:grid-cols-2"
+                    >
                         <div className="contact-info relative bg-primary-blue px-[2.2rem] py-[2.3rem] text-dark-blue">
                             <h3 className="title mb-3 text-xl font-semibold">Let&apos;s get in touch</h3>
                             <p className="text mt-6 font-medium">
@@ -204,7 +217,7 @@ const Contact = () => {
                                 </button>
                             </form>
                         </div>
-                    </div>
+                    </motion.div>
                 </div>
             </div>
         </div>

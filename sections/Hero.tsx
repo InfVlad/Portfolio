@@ -21,8 +21,8 @@ const Hero = () => {
         },
     };
     const variantItemA = {
-        hidden: { opacity: 0, translateY: 15 },
-        show: { opacity: 1, translateY: 0 },
+        hidden: { opacity: 0, translateY: 55 },
+        show: { opacity: 1, translateY: 0, transition: { ease: "easeInOut", duration: 0.3 } },
     };
     const variantItemB = {
         hidden: { opacity: 0 },
