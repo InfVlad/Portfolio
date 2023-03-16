@@ -16,7 +16,7 @@ const backgroundDecoration = {
 
 const ProjectCard = ({ title, imagesUrl, description, id, handleOpenProject }: ProjectCardProps) => {
     return (
-        <div className="relative my-6 min-h-[300px]">
+        <div className="relative my-6 min-h-[300px] lg:min-h-[500px]">
             <div className="relative">
                 <div className={id % 2 === 0 ? backgroundDecoration.purple : backgroundDecoration.blue} />
             </div>
