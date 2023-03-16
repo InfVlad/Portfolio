@@ -20,7 +20,7 @@ const Navbar = () => {
         return selected === section ? navButtonsStyles.active : navButtonsStyles.inactive;
     };
 
-    const menuItemVariants = {
+    const mobileMenuItemVariants = {
         closed: {
             opacity: 0,
         },
@@ -28,7 +28,7 @@ const Navbar = () => {
             opacity: 1,
         },
     };
-    const menuSideVariants = {
+    const mobileMenuSideVariants = {
         closed: {
             transition: {
                 staggerChildren: 0.15,
@@ -47,10 +47,15 @@ const Navbar = () => {
         <header className="relative z-[5]">
             <nav className="fixed mx-auto h-16 w-full bg-dark-blue bg-opacity-80 text-white backdrop-blur backdrop-filter">
                 <div className="mx-auto flex w-5/6 items-center justify-between py-6 lg:max-w-[1250px] ">
-                    <a href="#Home">
+                    <motion.a
+                        initial={{ translateY: -15, opacity: 0 }}
+                        animate={{ translateY: 0, opacity: 1 }}
+                        transition={{ duration: 0.15 }}
+                        href="#Home"
+                    >
                         <img src="/icon.svg" alt="site's icon" />
-                    </a>
-                    <div className="flex items-center md:hidden">
+                    </motion.a>
+                    <div className="mobile-hamburger flex items-center md:hidden">
                         <motion.div
                             className={`z-10 flex h-5 w-6 cursor-pointer flex-col items-center justify-between${
                                 open ? " active" : ""
@@ -74,7 +79,12 @@ const Navbar = () => {
                             />
                         </motion.div>
                     </div>
-                    <div className="desktop-navigation relative hidden w-[450px] md:block">
+                    <motion.div
+                        initial={{ translateY: -15, opacity: 0 }}
+                        animate={{ translateY: 0, opacity: 1 }}
+                        transition={{ duration: 0.15, delay: 0.15, ease: "easeInOut" }}
+                        className="desktop-navigation relative hidden w-[450px] md:block"
+                    >
                         <ul className="flex">
                             <li
                                 onMouseOver={() => handleMouseOver("home")}
@@ -137,7 +147,7 @@ const Navbar = () => {
                                 className="indicator absolute left-0 z-[2] h-[30px] w-[90px] rounded-lg transition-all duration-500"
                             />
                         </ul>
-                    </div>
+                    </motion.div>
                 </div>
                 <AnimatePresence>
                     {open && (
@@ -157,12 +167,12 @@ const Navbar = () => {
                                 initial="closed"
                                 animate="open"
                                 exit="closed"
-                                variants={menuSideVariants}
+                                variants={mobileMenuSideVariants}
                                 className="text-center text-xl"
                             >
                                 <motion.li
                                     key={1}
-                                    variants={menuItemVariants}
+                                    variants={mobileMenuItemVariants}
                                     className="cursor-pointer py-3"
                                     onTap={() => cycleOpen()}
                                 >
@@ -175,7 +185,7 @@ const Navbar = () => {
                                 </motion.li>
                                 <motion.li
                                     key={2}
-                                    variants={menuItemVariants}
+                                    variants={mobileMenuItemVariants}
                                     className="cursor-pointer py-3"
                                     onTap={() => cycleOpen()}
                                 >
@@ -188,7 +198,7 @@ const Navbar = () => {
                                 </motion.li>
                                 <motion.li
                                     key={3}
-                                    variants={menuItemVariants}
+                                    variants={mobileMenuItemVariants}
                                     className="cursor-pointer py-3"
                                     onTap={() => cycleOpen()}
                                 >
@@ -201,7 +211,7 @@ const Navbar = () => {
                                 </motion.li>
                                 <motion.li
                                     key={4}
-                                    variants={menuItemVariants}
+                                    variants={mobileMenuItemVariants}
                                     className="cursor-pointer py-3"
                                     onTap={() => cycleOpen()}
                                 >
@@ -214,7 +224,7 @@ const Navbar = () => {
                                 </motion.li>
                                 <motion.li
                                     key={5}
-                                    variants={menuItemVariants}
+                                    variants={mobileMenuItemVariants}
                                     className="cursor-pointer py-3"
                                     onTap={() => cycleOpen()}
                                 >

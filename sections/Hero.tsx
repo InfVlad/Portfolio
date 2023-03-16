@@ -3,45 +3,64 @@
 import { renderCanvas } from "@/components";
 import { useEffect } from "react";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa";
-
-// all this just to run renderCanvas on the second render, no the first (hydratation conflict)
-// const useDidMountEffect = (func: any, deps: any) => {
-//     const didMount = useRef(false);
-//     useEffect(() => {
-//         if (didMount.current) {
-//             func();
-//         } else {
-//             didMount.current = true;
-//         }
-//     }, deps);
-// };
+import { motion } from "framer-motion";
 
 const Hero = () => {
-    // const [loaded, setLoaded] = useState(true);
-
     useEffect(() => {
         renderCanvas();
     }, []);
 
-    // useDidMountEffect(renderCanvas, [loaded]);
+    const variantContainer = {
+        hidden: { opacity: 0 },
+        show: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.25,
+                delay: 0.35,
+            },
+        },
+    };
+    const variantItemA = {
+        hidden: { opacity: 0, translateY: 15 },
+        show: { opacity: 1, translateY: 0 },
+    };
+    const variantItemB = {
+        hidden: { opacity: 0 },
+        show: { opacity: 1 },
+    };
 
     return (
         <div className="section-hero" id="Home">
             <div className="section-hero container mx-auto mb-20">
-                <div className="section-hero relative z-[3] flex min-h-screen w-full flex-col items-center justify-center">
-                    <div className="relative">
+                <motion.div
+                    variants={variantContainer}
+                    initial="hidden"
+                    animate="show"
+                    className="section-hero relative z-[3] flex min-h-screen w-full flex-col items-center justify-center"
+                >
+                    <motion.div variants={variantItemB} className="relative">
                         <div className="lg:h-6w-60 pointer-events-none absolute right-0 top-[-7rem] z-[1] h-56 w-56 bg-secondary-purple opacity-50 blur-3xl lg:top-[-13rem] lg:right-[13rem] lg:w-60" />
-                    </div>
-                    <h1 className="z-[2] mb-5 text-center text-5xl font-bold lg:text-7xl">Vladimir Infante</h1>
-                    <h2 className="z-[2] mb-4 text-xl font-semibold lg:text-2xl">FullStack Developer</h2>
-                    <p className="z-[2] text-center text-lg">
+                    </motion.div>
+                    <motion.h1
+                        variants={variantItemA}
+                        className="z-[2] mb-5 text-center text-5xl font-bold lg:text-7xl"
+                    >
+                        Vladimir Infante
+                    </motion.h1>
+                    <motion.h2 variants={variantItemA} className="z-[2] mb-4 text-xl font-semibold lg:text-2xl">
+                        FullStack Developer
+                    </motion.h2>
+                    <motion.p variants={variantItemA} className="z-[2] text-center text-lg">
                         I build great digital experiences using modern technologies
-                    </p>
-                    <div className="relative">
+                    </motion.p>
+                    <motion.div variants={variantItemB} className="relative">
                         <div className="lg:h-6w-60 pointer-events-none absolute left-0 top-[-1rem] z-[1] h-56 w-56 bg-secondary-blue opacity-50 blur-3xl lg:top-[1rem] lg:left-[12rem] lg:w-60" />
-                    </div>
+                    </motion.div>
                     <div className="z-[2] mt-6 text-center">
-                        <ul className="mb-0 inline-flex list-none flex-wrap gap-3 pl-0 sm:gap-4">
+                        <motion.ul
+                            variants={variantItemA}
+                            className="mb-0 inline-flex list-none flex-wrap gap-3 pl-0 sm:gap-4"
+                        >
                             <li className="inline-block align-middle">
                                 <a
                                     href="https://github.com/InfVlad"
@@ -74,9 +93,9 @@ const Hero = () => {
                                     </span>
                                 </a>
                             </li>
-                        </ul>
+                        </motion.ul>
                     </div>
-                </div>
+                </motion.div>
                 <canvas className="pointer-events-none absolute inset-1" id="canvas" />
             </div>
         </div>
