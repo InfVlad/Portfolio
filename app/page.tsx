@@ -1,8 +1,9 @@
 import { Navbar, Footer } from "@/components";
-import { Hero, About, Skills, Projects } from "@/sections";
+import { Hero, About, Skills } from "@/sections";
 import dynamic from "next/dynamic";
 
 const Contact = dynamic(() => import("@/sections/Contact"));
+const Projects = dynamic(() => import("@/sections/Projects"));
 
 export default function Home() {
     return (
