@@ -10,7 +10,7 @@ export const metadata = {
         description: "Vladimir Infante's Developer Portfolio built with NextJs 13.2",
         images: [
             {
-                url: "public/assets/portfolio-home-preview.png",
+                url: "https://vlad-infante-portfolio.vercel.app/assets/portfolio-home-preview.png",
                 width: 752,
                 height: 400,
                 alt: "portfolio thumbnail",
