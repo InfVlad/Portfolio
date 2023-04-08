@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 const About = () => {
     return (
-        <div className="section-about relative z-[4] scroll-mt-10" id="about">
+        <section className="section-about relative z-[4] scroll-mt-10" id="about">
             <div className="section-about container relative z-[3] mx-auto mb-20 pt-10 lg:pt-14">
                 <div className="pointer-events-none absolute right-[-10%] top-[4%] z-[1] h-60 w-60 rounded-full bg-secondary-purple opacity-40 blur-3xl md:right-[10%] lg:top-[-26%] lg:right-[-5%] lg:h-96 lg:w-96 xl:top-[-35%] xl:right-[-5%] xl:h-[25rem] xl:w-[25rem]" />
                 <motion.div
@@ -55,7 +55,7 @@ const About = () => {
                     </div>
                 </motion.div>
             </div>
-        </div>
+        </section>
     );
 };
 

@@ -18,7 +18,7 @@ const Projects = () => {
     };
 
     return (
-        <div className="section-projects scroll-mt-10" id="projects">
+        <section className="section-projects scroll-mt-10" id="projects">
             <div className="hero-section container mx-auto pt-10 lg:pt-14">
                 <motion.div
                     initial={{ opacity: 0, translateY: 45 }}
@@ -68,7 +68,7 @@ const Projects = () => {
                     )}
                 </AnimatePresence>
             </div>
-        </div>
+        </section>
     );
 };
 

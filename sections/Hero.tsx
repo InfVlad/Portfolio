@@ -30,7 +30,7 @@ const Hero = () => {
     };
 
     return (
-        <div className="section-hero" id="Home">
+        <section className="section-hero" id="Home">
             <div className="section-hero container mx-auto mb-20">
                 <motion.div
                     variants={variantContainer}
@@ -98,7 +98,7 @@ const Hero = () => {
                 </motion.div>
                 <canvas className="pointer-events-none absolute inset-1" id="canvas" />
             </div>
-        </div>
+        </section>
     );
 };
 

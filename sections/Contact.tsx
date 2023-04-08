@@ -64,7 +64,7 @@ const Contact = () => {
         }
     };
     return (
-        <div className="contact-section scroll-mt-10" id="contact">
+        <section className="contact-section scroll-mt-10" id="contact">
             <Toaster />
             <div className="contact-section container relative z-[3] mx-auto mb-20 pt-10 lg:pt-14">
                 <div className="pointer-events-none absolute right-[-10%] top-[-10%] z-[0] h-60 w-60 rounded-full bg-secondary-purple opacity-40 blur-3xl md:right-[5%] lg:top-[-18%] lg:right-[-5%] lg:h-96 lg:w-96 xl:top-[-20%] xl:right-[-5%] xl:h-[30rem] xl:w-[30rem]" />
@@ -220,7 +220,7 @@ const Contact = () => {
                     </motion.div>
                 </div>
             </div>
-        </div>
+        </section>
     );
 };
 

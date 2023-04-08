@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 
 const Skills = () => {
     return (
-        <div className="section-skills scroll-mt-10" id="skills">
+        <section className="section-skills scroll-mt-10" id="skills">
             <div className="section-skills container relative z-[3] mx-auto mb-20 pt-10 lg:pt-14">
                 <div className="pointer-events-none absolute left-[-10%] top-[4%] z-[1] h-60 w-60 rounded-full bg-secondary-blue opacity-40 blur-3xl md:left-[10%] lg:top-[-26%] lg:left-[-5%] lg:h-96 lg:w-96 xl:top-[-35%] xl:left-[-5%] xl:h-[25rem] xl:w-[25rem]" />
                 <motion.div
@@ -33,7 +33,7 @@ const Skills = () => {
                     })}
                 </motion.div>
             </div>
-        </div>
+        </section>
     );
 };
 
