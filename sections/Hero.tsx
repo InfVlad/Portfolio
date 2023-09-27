@@ -48,7 +48,7 @@ const Hero = () => {
                         Vladimir Infante
                     </motion.h1>
                     <motion.h2 variants={variantItemA} className="z-[2] mb-4 text-xl font-semibold lg:text-2xl">
-                        FullStack Developer
+                        Frontend Developer
                     </motion.h2>
                     <motion.p variants={variantItemA} className="z-[2] text-center text-lg">
                         I build great digital experiences using modern technologies
